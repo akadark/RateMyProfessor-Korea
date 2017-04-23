@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+  h1= title
+  .col-md-offset-10
+    a.btn.btn-default.btn-mini(href='/pages/create' role='button') Create New Review
+  hr   
+  ul
+    if(docs != null)
+      each doc in docs
+        li 
+          a(href="/pages/view/" + doc.id)= doc.course 
+            |  - 
+            =doc.professor
+            |  - 
+            =doc.ratingCourse
+    else 
+      h3 We can't find any matching data!
+    
+        
+    
+  

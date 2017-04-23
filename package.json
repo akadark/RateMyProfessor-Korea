@@ -1,0 +1,24 @@
+{
+  "name": "ratemyprofessor-like-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.1",
+    "express-flash": "0.0.2",
+    "express-logger": "0.0.3",
+    "express-session": "^1.15.1",
+    "mongoose": "^4.9.2",
+    "nodemon": "^1.11.0",
+    "pug": "^2.0.0-beta11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chungmin Park",
+  "license": "ISC"
+}
