@@ -21,10 +21,6 @@ exports.index = function(req, res) {
 };
 
 exports.about = function(req, res) {
-  let flash = {
-    notice: req.flash('notice')[0],
-    error: req.flash('error')[0]
-  }
   res.render("pages/about", {
     flash: {},
     title: 'About Page'
@@ -39,7 +35,12 @@ exports.createForm = function(req, res) {
 }
 
 exports.createSave = function(req, res) {
-  let pages = new Page({
+  var flash = {
+        notice:req.flash('notice')[0],
+        error:req.flash('error')[0]
+  };
+  
+  var pages = new Page({
     course: req.body.course,
     professor: req.body.professor,
     difficulty: req.body.difficulty,
@@ -52,8 +53,11 @@ exports.createSave = function(req, res) {
 
   pages.save(function(err) {
     if (err) {
-      req.flash('error', 'Page failed to save');
-      res.send("Error Saving!!");
+      flash.error="Page failed to save";
+      res.render("pages/create", {
+        flash: flash,
+        title: 'Create Page'
+      })
     }
     else {
       req.flash('notice', 'Page saved successfully!!');
@@ -84,10 +88,6 @@ exports.view = function(req, res) {
 }
 
 exports.update = function(req, res) {
-  let flash = {
-    notice: req.flash('notice')[0],
-    error: req.flash('error')[0]
-  };
   let id = req.params.id || 0;
 
   Page.findById(id, function(err, docs) {
@@ -98,7 +98,7 @@ exports.update = function(req, res) {
       res.render('pages/update', {
         id: id,
         docs: docs,
-        flash: flash,
+        flash: {},
         title: 'Update Page'
       })
     }
@@ -106,13 +106,13 @@ exports.update = function(req, res) {
 }
 
 exports.updateSave = function(req, res) {
+  let id = req.params.id || 0;
+  
   let flash = {
     notice: req.flash('notice')[0],
     error: req.flash('error')[0]
-  }
-
-  let id = req.params.id || 0;
-  console.log(id);
+  };
+  
   Page.findById(id, function(err, docs) {
     if (err) {
       res.send("Document not found");
@@ -128,11 +128,16 @@ exports.updateSave = function(req, res) {
       docs.question2 = req.body.question2;
       docs.save(function(err) {
         if (err) {
-          req.flash('error', 'Something is missing, Page failed to save');
-          res.send("Error Saving!!");
+          flash.error="Something is missing, Page failed to save";
+          res.render('pages/update', {
+            id: id,
+            docs: docs,
+            flash: flash,
+            title: 'Update Page'
+          })
         }
         else {
-          req.flash('notice', 'successfully updated!!');
+          req.flash('notice', 'Successfully updated!!');
           res.redirect('/pages/view/' + id);
         }
       })
@@ -150,7 +155,7 @@ exports.delete = function(req, res) {
     else {
       doc.remove(function(err) {
         if (err) {
-          res.send("error deleting page");
+          res.send("Error during deleting page");
         }
         else {
           res.redirect("/pages");

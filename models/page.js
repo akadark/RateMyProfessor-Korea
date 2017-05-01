@@ -2,7 +2,7 @@ var mongoose = require("mongoose"),
   Schema = mongoose.Schema,
   ObjectId = Schema.ObjectId;
   
-var difficulty = ['Very Easy', 'Easy', 'Normal', 'Hard', 'Very hard'];
+var difficulty = ['Very easy', 'Easy', 'Normal', 'Hard', 'Very hard'];
 var rating = ['★☆☆☆☆', '★★☆☆☆', '★★★☆☆', '★★★★☆', '★★★★★'];
 
 var ReviewSchema = new Schema({

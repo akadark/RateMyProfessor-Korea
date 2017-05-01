@@ -2,7 +2,7 @@ doctype html
 html(lang='en')
   head
     // Theme Made By www.w3schools.com - No Copyright
-    title Bootstrap Theme Company Page
+    title ratemyprofessor - korea
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
@@ -14,25 +14,25 @@ html(lang='en')
       body {
       font: 400 15px Lato, sans-serif;
       line-height: 1.8;
-      color: #818181;
+      color: #012f67;
       }
       h2 {
       font-size: 24px;
       text-transform: uppercase;
-      color: #303030;
+      color: #012f67;
       font-weight: 600;
       margin-bottom: 30px;
       }
       h4 {
       font-size: 19px;
       line-height: 1.375em;
-      color: #303030;
+      color: #012f67;
       font-weight: 400;
       margin-bottom: 30px;
       }
       .jumbotron {
-      background-color: #f4511e;
-      color: #fff;
+      background-color: #ffff;
+      color: #0000;
       padding: 100px 25px;
       font-family: Montserrat, sans-serif;
       }
@@ -43,11 +43,11 @@ html(lang='en')
       background-color: #f6f6f6;
       }
       .logo-small {
-      color: #f4511e;
+      color: #012f67;
       font-size: 50px;
       }
       .logo {
-      color: #f4511e;
+      color: #012f67;
       font-size: 200px;
       }
       .thumbnail {
@@ -62,13 +62,13 @@ html(lang='en')
       }
       .carousel-control.right, .carousel-control.left {
       background-image: none;
-      color: #f4511e;
+      color: #012f67;
       }
       .carousel-indicators li {
-      border-color: #f4511e;
+      border-color: #012f67;
       }
       .carousel-indicators li.active {
-      background-color: #f4511e;
+      background-color: #012f67;
       }
       .item h4 {
       font-size: 19px;
@@ -81,7 +81,7 @@ html(lang='en')
       font-style: normal;
       }
       .panel {
-      border: 1px solid #f4511e;
+      border: 1px solid #012f67;
       border-radius:0 !important;
       transition: box-shadow 0.5s;
       }
@@ -89,13 +89,13 @@ html(lang='en')
       box-shadow: 5px 0px 40px rgba(0,0,0, .2);
       }
       .panel-footer .btn:hover {
-      border: 1px solid #f4511e;
+      border: 1px solid #012f67;
       background-color: #fff !important;
-      color: #f4511e;
+      color: #012f67;
       }
       .panel-heading {
       color: #fff !important;
-      background-color: #f4511e !important;
+      background-color: #012f67 !important;
       padding: 25px;
       border-bottom: 1px solid transparent;
       border-top-left-radius: 0px;
@@ -115,14 +115,14 @@ html(lang='en')
       }
       .panel-footer .btn {
       margin: 15px 0;
-      background-color: #f4511e;
+      background-color: #012f67;
       color: #fff;
       }
       .navbar {
       margin-bottom: 0;
-      background-color: #f4511e;
+      background-color: #eee;
       z-index: 9999;
-      border: 0;
+      border: 1;
       font-size: 12px !important;
       line-height: 1.42857143 !important;
       letter-spacing: 4px;
@@ -130,10 +130,11 @@ html(lang='en')
       font-family: Montserrat, sans-serif;
       }
       .navbar li a, .navbar .navbar-brand {
-      color: #fff !important;
+      color: #012f67 !important;
+      border-color: #ddd;
       }
       .navbar-nav li a:hover, .navbar-nav li.active a {
-      color: #f4511e !important;
+      color: #012f67 !important;
       background-color: #fff !important;
       }
       .navbar-default .navbar-toggle {
@@ -143,7 +144,7 @@ html(lang='en')
       footer .glyphicon {
       font-size: 20px;
       margin-bottom: 20px;
-      color: #f4511e;
+      color: #012f67;
       }
       .slideanim {visibility:hidden;}
       .slide {
@@ -189,6 +190,7 @@ html(lang='en')
       }
       }
   body#myPage(data-spy='scroll', data-target='.navbar', data-offset='60')
+    
     nav.navbar.navbar-default.navbar-fixed-top
       .container
         .navbar-header
@@ -204,12 +206,11 @@ html(lang='en')
             li
               a(href='#services') SERVICES
             li
-              a(href='#portfolio') PORTFOLIO
-            li
               a(href='#pricing') PRICING
             li
               a(href='#contact') CONTACT
     .jumbotron.text-center
+      include includes/alert
       h1 RateMyProfessor - Korea
       p Search class information you want
         form(action="/pages/search", method='POST')

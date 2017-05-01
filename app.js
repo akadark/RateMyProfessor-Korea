@@ -32,6 +32,7 @@ app.use(session({
 app.use(flash());
 
 //Mongoose API http://mongoosejs.com/docs/api.html
+mongoose.Promise = global.Promise;
 mongoose.connect(process.env.IP + "/local");
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
